@@ -10,7 +10,6 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
 // -- This is a child command --
@@ -23,3 +22,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('apiLogin', (email, password) => {
+    cy.request({
+        method: "POST",
+        url: "/login",
+        headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: {
+            email: email,
+            password: password,
+        },
+        failOnStatusCode: false,
+    });
+});
