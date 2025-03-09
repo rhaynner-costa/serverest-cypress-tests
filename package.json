@@ -1,0 +1,16 @@
+{
+  "name": "serverest-cypress-tests",
+  "version": "1.0.0",
+  "description": "Projeto de testes automatizados de api e e2e com o cypress ",
+  "main": "index.js",
+  "scripts": {
+    "open:cy": "npx cypress open",
+    "api:tests": "npx cypress run --spec cypress/apiTests/**/*.cy.js",
+    "e2e:tests": "npx cypress run --spec cypress/e2eTests/**/*.cy.js"
+  },
+  "author": "Rhaynner Costa",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.1.0"
+  }
+}
