@@ -26,7 +26,7 @@
 Cypress.Commands.add('apiLogin', (email, password) => {
     cy.request({
         method: "POST",
-        url: "/login",
+        url: Cypress.env('baseUrlAPI') + "/login",
         headers: {
             accept: "application/json"
         },
@@ -38,10 +38,49 @@ Cypress.Commands.add('apiLogin', (email, password) => {
     });
 });
 
+Cypress.Commands.add('apiListaUsuarioPeloEmail', (email) => {
+    cy.request({
+        method: "GET",
+        url: Cypress.env('baseUrlAPI') + `/usuarios?email=${encodeURIComponent(email)}`,
+        headers: {
+            accept: "application/json"
+        },
+        failOnStatusCode: false,
+    });
+});
+
+Cypress.Commands.add('apiCadastraNovoUSuarioAdmin', (email, password) => {
+    cy.request({
+        method: "POST",
+        url: Cypress.env('baseUrlAPI') + "/usuarios",
+        headers: {
+            accept: "application/json"
+        },
+        body: {
+            nome: "Alexa",
+            email: email,
+            password: password,
+            administrador: "true",
+        },
+        failOnStatusCode: false,
+    });
+});
+
+Cypress.Commands.add('apiDeletaUsuarioPeloId', (userId) => {
+    cy.request({
+        method: "DELETE",
+        url: Cypress.env('baseUrlAPI') + `/usuarios/${userId}`,
+        headers: {
+            accept: "application/json"
+        },
+        failOnStatusCode: false,
+    });
+});
+
 Cypress.Commands.add('login', (email, password) => {
     cy.request({
         method: "POST",
-        url: "/login",
+        url: Cypress.env('baseUrlAPI') + '/login',
         headers: {
             accept: "application/json"
         },
@@ -56,41 +95,10 @@ Cypress.Commands.add('login', (email, password) => {
     });
 });
 
-Cypress.Commands.add('apiListaUsuarioPeloEmail', (email) => {
-    cy.request({
-        method: "GET",
-        url: `/usuarios?email=${encodeURIComponent(email)}`,
-        headers: {
-            accept: "application/json"
-        },
-        failOnStatusCode: false,
-    });
+Cypress.Commands.add('clica', (selector) => {
+    cy.get(selector).should('be.visible').click();
 });
 
-Cypress.Commands.add('cadastraNovoUSuarioAdmin', (email, password) => {
-    cy.request({
-        method: "POST",
-        url: "/usuarios",
-        headers: {
-            accept: "application/json"
-        },
-        body: {
-            nome: "Alexa",
-            email: email,
-            password: password,
-            administrador: "true",
-        },
-        failOnStatusCode: false,
-    });
-});
-
-Cypress.Commands.add('deletaUsuarioPeloId', (userId) => {
-    cy.request({
-        method: "DELETE",
-        url: `/usuarios/${userId}`,
-        headers: {
-            accept: "application/json"
-        },
-        failOnStatusCode: false,
-    });
+Cypress.Commands.add('validarTexto', (selector, expectedText) => {
+    cy.get(selector).should('have.text', expectedText);
 });
