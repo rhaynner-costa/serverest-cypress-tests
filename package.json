@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "open:cy": "npx cypress open",
-    "api:tests": "npx cypress run --spec cypress/apiTests/**/*.cy.js",
-    "e2e:tests": "npx cypress run --spec cypress/e2eTests/**/*.cy.js"
+    "api:tests": "npx cypress run --spec cypress/api/**/*.cy.js",
+    "e2e:tests": "npx cypress run --spec cypress/e2e/**/*.cy.js"
   },
   "author": "Rhaynner Costa",
   "license": "ISC",
