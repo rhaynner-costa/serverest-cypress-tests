@@ -57,7 +57,7 @@ Cypress.Commands.add('apiCadastraNovoUSuarioAdmin', (email, password) => {
             accept: "application/json"
         },
         body: {
-            nome: "Alexa",
+            nome: "Alexa Costa",
             email: email,
             password: password,
             administrador: "true",
