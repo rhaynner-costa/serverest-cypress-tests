@@ -38,7 +38,7 @@ Antes de começar, certifique-se de ter instalado:
 ### 🔹 Abrir a interface do Cypress
 
 ```sh
-npm run open:cy
+npm run dev
 ```
 
 ### 🔹 Executar os testes de API
