@@ -38,11 +38,6 @@ describe("Testes de api do servrest", () => {
       });
     });
 
-    // it('Reutiliza o _id do usuário cadastrado', function () {
-    //   cy.log(`O _id do usuário é: ${userId}`);
-    //   expect(userId).to.exist; // Garante que o _id existe
-    // });
-
   });
 
 });
