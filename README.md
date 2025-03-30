@@ -6,28 +6,13 @@ Projeto de testes automatizados de API e E2E utilizando Cypress.
 
 Este projeto contém testes automatizados para a API e testes de ponta a ponta (E2E) usando o [Cypress](https://www.cypress.io/), proporcionando mais eficiência e confiabilidade nos testes.
 
-## 📂 Estrutura do Projeto
-
-```
-serverest-cypress-tests/
-├── cypress/
-│   ├── e2eTests/       # Testes de ponta a ponta (E2E)
-│   ├── apiTests/       # Testes de API
-│   ├── helpers/        # Classes auxiliares para os testes
-│   ├── fixtures/       # Arquivos JSON com dados simulados
-│   ├── support/        # Comandos e configurações globais
-│   ├── plugins/        # Configuração de plugins do Cypress
-│── cypress.config.js   # Configuração do Cypress
-│── package.json        # Dependências e scripts
-│── README.md           # Documentação do projeto
-```
-
 ## ✅ Pré-requisitos
 
 Antes de começar, certifique-se de ter instalado:
 
 - [Node.js](https://nodejs.org/) (versão recomendada: LTS)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
+- [OpenJDK 17](https://openjdk.org/projects/jdk/17/) (necessário para gerar relatórios com o Allure Report)
 
 ## 🚀 Instalação
 
@@ -46,10 +31,6 @@ Antes de começar, certifique-se de ter instalado:
 3. Instale as dependências:
    ```sh
    npm install
-   ```
-   ou, se estiver usando Yarn:
-   ```sh
-   yarn install
    ```
 
 ## ▶️ Executando os Testes
@@ -70,6 +51,20 @@ npm run api:tests
 
 ```sh
 npm run e2e:tests
+```
+
+### 🔹 Executar os testes gerando o allura report
+
+```sh
+npm run allure-chro
+```
+
+```sh
+npm run allure-repo
+```
+
+```sh
+allure open
 ```
 
 ## 📌 Considerações

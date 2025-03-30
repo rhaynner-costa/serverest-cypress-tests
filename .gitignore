@@ -43,3 +43,7 @@ coverage/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Reports de testes
+allure-report/
+allure-results/
