@@ -17,6 +17,7 @@ describe("Testes de api do servrest", () => {
     it("Faz login com usuario invalido", () => {
       cy.apiLogin(emailInvalido, senha).then((response) => {
         expect(response.status).to.equal(401);
+        expect(response.body.message).to.equal("Email e/ou senha inválidos");
       });
     });
 
@@ -24,6 +25,7 @@ describe("Testes de api do servrest", () => {
       cy.apiLogin(emailValido, senha).then((response) => {
         expect(response.status).to.equal(200);
         expect(response.body.message).to.equal("Login realizado com sucesso");
+        expect(response.body.authorization).to.not.be.null;
       });
     });
 
